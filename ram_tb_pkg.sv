@@ -37,6 +37,27 @@ package ran_tb_pkg;
         endtask
     endclass
 
+    class Agent;
+        mailbox #(Transaction) from_generator, to_driver, to_scoreboard;
+        Transaction tr;
+
+        function new(input mailbox #(Transaction) from_generator, to_driver, to_scoreboard);
+            this.from_generator = from_generator;
+            this.to_driver = to_driver;
+            this.to_scoreboard = to_scoreboard;
+        endfunction
+
+        task run();
+            forever begin
+                from_generator.get(tr);
+                //processing if needed
+                to_driver.put(tr);
+                to_scoreboard.put(tr);
+
+            end
+        endtask
+    endclass
+
 endpackage
 
 
