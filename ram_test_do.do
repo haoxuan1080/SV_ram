@@ -3,6 +3,7 @@ setenv LMC_TIMEUNIT -9
 vlib work
 vmap work work
 vlog -work work ram_if.sv
+vlog -work work ram_tb_pkg.sv
 vlog -work work ram.sv
 vlog -work work ram_tb.sv
 

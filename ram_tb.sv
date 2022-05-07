@@ -2,7 +2,7 @@
 
 module ram_tb;
 	
-	import "DPI-C" function int test_bench_helper(input longint time_int, output hold_clk);
+	import "DPI-C" function void test_bench_helper(input longint time_int, output hold_clk);
 	logic clk=0;
 	logic hold_clk;
 	

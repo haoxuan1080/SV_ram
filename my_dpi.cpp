@@ -3,7 +3,7 @@
 
 using namespace std;
 
-extern "C" int test_bench_helper(long long int time, svLogic* hold_clk) {
+extern "C" void test_bench_helper(long long int time, svLogic* hold_clk) {
     if (time > 10000) {
     	*hold_clk = 1;
 	cout<<"holding clock from c++ at time"<<time<<endl;
@@ -11,5 +11,4 @@ extern "C" int test_bench_helper(long long int time, svLogic* hold_clk) {
     else {
     	*hold_clk = 0;
     }
-    return 0;
 }
